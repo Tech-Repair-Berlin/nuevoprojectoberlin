@@ -3,41 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reparo Berlin | Tu Servicio Técnico</title>
+    <title>Reparo Berlín | Tu Servicio Técnico</title>
     <style>
-        /* 1. PALETA DE COLORES Y FUENTES */
+        /* PALETA DE COLORES */
         :root {
-            --fondo: #F9F6F0; /* Beige muy suave y relajante */
-            --acento: #D97757; /* Terracota cálido para botones y títulos */
-            --texto: #333333; /* Gris oscuro, más elegante que el negro puro */
+            --fondo: #FFF9F0; /* Beige claro de la foto */
+            --acento: #C26D53; /* Terracota oscuro */
+            --texto-oscuro: #1A3644; /* Azul oscuro del logo */
+            --texto-claro: #555555;
             --blanco: #FFFFFF;
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--fondo);
-            color: var(--texto);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            color: var(--texto-oscuro);
         }
 
-        /* 2. SECCIÓN PRINCIPAL (HERO) */
-        header {
-            text-align: center;
-            padding: 80px 20px;
+        /* 1. MENÚ DE NAVEGACIÓN SUPERIOR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--fondo);
         }
 
-        h1 {
-            font-size: 2.8rem;
+        .logo {
+            font-family: 'Georgia', serif; /* Letra más clásica para el logo */
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--texto-oscuro);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+        }
+
+        .menu-links a.activo {
+            color: var(--acento);
+            border-bottom: 2px solid var(--acento);
+            padding-bottom: 5px;
+        }
+
+        /* 2. SECCIÓN PRINCIPAL (HERO) CON ESPACIO PARA IMAGEN */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 8% 100px 8%;
+            background-color: var(--fondo);
+        }
+
+        .hero-texto {
+            width: 45%;
+        }
+
+        .hero-texto h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3.5rem;
+            color: var(--acento);
             margin-bottom: 10px;
-            color: var(--texto);
+            line-height: 1.1;
         }
 
-        .subtitulo {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
-            color: #555555;
+        .hero-texto p {
+            font-size: 1.2rem;
+            color: var(--texto-claro);
+            margin-bottom: 30px;
         }
 
         .boton-reserva {
@@ -48,84 +95,101 @@
             font-weight: bold;
             border-radius: 30px;
             display: inline-block;
-            transition: background-color 0.3s ease;
         }
 
-        .boton-reserva:hover {
-            background-color: #b86245; /* Un tono más oscuro al pasar el ratón */
+        .hero-imagen {
+            width: 50%;
+            height: 350px;
+            background-color: #E2D9CE; /* Cuadro gris donde irá la foto real */
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
         }
 
-        /* 3. SECCIÓN DE SERVICIOS (TARJETAS) */
+        /* 3. TARJETAS DE SERVICIOS */
         .servicios {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
+            gap: 20px;
+            padding: 0 8%;
+            margin-top: -60px; /* Sube las tarjetas para que pisen la sección de arriba */
+            position: relative;
         }
 
         .tarjeta-servicio {
             background-color: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Sombra muy suave */
-            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            width: 30%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .tarjeta-servicio h3 {
-            color: var(--acento);
-            font-size: 1.4rem;
-            margin-top: 0;
+        .icono {
+            font-size: 2.5rem;
         }
 
-        /* 4. SECCIÓN DE CONFIANZA */
-        .confianza {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: var(--blanco);
-            margin-top: 20px;
+        .texto-tarjeta h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
         }
-        
-        .confianza p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #666666;
+
+        .texto-tarjeta p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--texto-claro);
         }
     </style>
 </head>
 <body>
 
-    <!-- CABECERA -->
-    <header>
-        <h1>Reparo Berlin</h1>
-        <p class="subtitulo">Reparación experta, cercana y de confianza.</p>
-        <a href="#" class="boton-reserva">RESERVA TU CITA</a>
-    </header>
+    <nav>
+        <div class="logo">🛠️ REPARO BERLÍN</div>
+        <div class="menu-links">
+            <a href="#" class="activo">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+    </nav>
 
-    <!-- TARJETAS DE SERVICIOS -->
-    <div class="servicios">
-        <div class="tarjeta-servicio">
-            <h3>📱 Móviles</h3>
-            <p>Diagnóstico preciso, cambio de pantallas y baterías con total transparencia y piezas de calidad.</p>
+    <div class="hero">
+        <div class="hero-texto">
+            <h1>Damos vida<br>a tu tecnología.</h1>
+            <p>Reparación Técnica y Cercana</p>
+            <a href="#" class="boton-reserva">RESERVA TU CITA</a>
         </div>
-        <div class="tarjeta-servicio">
-            <h3>💻 Portátiles y PCs</h3>
-            <p>Optimización, ampliación de componentes, discos SSD y recuperación de sistemas operativos.</p>
-        </div>
-        <div class="tarjeta-servicio">
-            <h3>🔬 Diagnóstico Avanzado</h3>
-            <p>Micro-soldadura, solución a fallos de placa base, problemas de encendido y testeo de componentes.</p>
+        <div class="hero-imagen">
+            [ Aquí irá la foto de la gente trabajando ]
         </div>
     </div>
 
-    <!-- MENSAJE DE CONFIANZA -->
-    <div class="confianza">
-        <p>"Trato directo y sin intermediarios. Analizamos el estado real de cada dispositivo para ofrecerte siempre la solución técnica más eficiente y rentable para ti."</p>
+    <div class="servicios">
+        <div class="tarjeta-servicio">
+            <div class="icono">📱</div>
+            <div class="texto-tarjeta">
+                <h4>Reparación de Móviles</h4>
+                <p>Reparación de pantallas, baterías y diagnóstico.</p>
+            </div>
+        </div>
+        <div class="tarjeta-servicio">
+            <div class="icono">💻</div>
+            <div class="texto-tarjeta">
+                <h4>Portátiles y PCs</h4>
+                <p>Optimización, placas y recuperación de datos.</p>
+            </div>
+        </div>
+        <div class="tarjeta-servicio">
+            <div class="icono">🪛</div>
+            <div class="texto-tarjeta">
+                <h4>Otros Dispositivos</h4>
+                <p>Micro-soldadura y reparaciones avanzadas.</p>
+            </div>
+        </div>
     </div>
 
 </body>
